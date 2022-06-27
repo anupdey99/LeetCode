@@ -16,9 +16,9 @@
 # Join 993 ms
 SELECT name
 FROM SalesPerson
-WHERE sales_id NOT IN
+WHERE name NOT IN
     ( 
-        SELECT s.sales_id 
+        SELECT s.name 
         FROM SalesPerson s
         JOIN Company c
         JOIN Orders o
