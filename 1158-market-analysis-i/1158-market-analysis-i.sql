@@ -4,12 +4,7 @@ SELECT
     u.join_date, 
     COUNT(order_id) AS orders_in_2019
 FROM Users u 
-LEFT JOIN
-    (
-        SELECT order_id, buyer_id
-        FROM Orders
-        WHERE YEAR(order_date) = '2019'
-    ) AS o
-ON o.buyer_id = u.user_id
+LEFT JOIN Orders o
+ON u.user_id  = o.buyer_id AND YEAR(order_date) = '2019'
 GROUP BY u.user_id
 
